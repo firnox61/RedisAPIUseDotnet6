@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(opt=>
-    ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("RedisConnection")));
+    ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("DockerRedisConnection")));
 
 builder.Services.AddScoped<IPlatformRepo,RedisPlatformRepo>();
 

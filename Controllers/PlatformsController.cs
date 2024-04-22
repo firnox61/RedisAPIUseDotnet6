@@ -14,10 +14,10 @@ namespace RedisAPI.Controllers
             _platformRepo=platformRepo;
         }
 
+//https://localhost:7015/api/cars/getcardetailsid?carId=1
 
 
-
-        [HttpGet("id",Name ="GetPlatformById")]
+        [HttpGet("id")]//("id",Name ="GetPlatformById"
         public ActionResult<Platform> GetPlatformById(string id)
         {
             var result=_platformRepo.GetPlatformById(id);
@@ -29,11 +29,11 @@ namespace RedisAPI.Controllers
 
     
         }
-        [HttpGet]
+        [HttpGet("getall")]
         public ActionResult<IEnumerable<Platform>> GetAllPlatform()
         {
             var result=_platformRepo.GetAllPlatforms();
-                        if(result!=null)
+            if(result!=null)
             {
                 return Ok(result);
             }
@@ -41,8 +41,8 @@ namespace RedisAPI.Controllers
 
         }
 
-        [HttpPost]
-        public ActionResult<Platform> CreatePlatform(Platform platform)
+        [HttpPost("add")]
+        public ActionResult <Platform> CreatePlatform(Platform platform)
         {
             _platformRepo.CreatePlatform(platform);
 
